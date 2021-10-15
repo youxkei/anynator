@@ -1,0 +1,33 @@
+{
+  "name": "anynator",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "rescript build -w",
+    "serve": "webpack serve --host 0.0.0.0",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youxkei/anynator.git"
+  },
+  "author": "Hisayuki Mima <youxkei@gmail.com>",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/youxkei/anynator/issues"
+  },
+  "homepage": "https://github.com/youxkei/anynator#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.4.0",
+    "rescript": "^9.1.4"
+  },
+  "dependencies": {
+    "@rescript/react": "^0.10.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1"
+  }
+}
