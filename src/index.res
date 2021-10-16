@@ -1,13 +1,19 @@
-@val external window: Dom.window = "window"
+module App = {
+  @react.component
+  let make = () => {
+    let phase = Recoil.useRecoilValue(State.phase)
 
-let data = [["","カオス（FF1）","皇帝（FF2）","暗闇の雲（FF3）","ゼロムス（FF4）","ネオエクスデス（FF5）","ケフカ（FF6）","セフィロス（FF7）","アルティミシア（FF8）","永遠の闇（FF9）","エボン＝ジュ（FF10）","不滅なるもの（FF12）","オーファン（FF13）","アーデン（FF15）"],["人？","1","1","0","1","0","1","1","1","0","1","1","0","1"],["ラストバトル中にしゃべる？","0","0","0","1","1","1","0","0","1","0","1","1","1"],["ペプシマン？","0","0","0","0","0","0","0","0","1","0","0","0","0"],["形態変化前も含め、比較的序盤の方に登場した？","1","0","0","0","0","1","1","0","0","0","1","0","1"]]
-
-let answers = data[0]->Js.Array2.slice(~start=1, ~end_=-1)
-
-Js.log(answers)
+    switch phase {
+    | State.Title() => <Title />
+    | State.Question({questions, objectCandidates}) => <Question questions objectCandidates />
+    | State.GameOver({object}) => <GameOver object />
+    | State.NotAvailable() => <NotAvailable />
+    }
+  }
+}
 
 switch ReactDOM.querySelector("#app") {
-| Some(app) => ReactDOM.render(<p>{ "Hello, world!"->React.string }</p>, app)
+| Some(app) => ReactDOM.render(<Recoil.RecoilRoot> <App /> </Recoil.RecoilRoot>, app)
 
 | None => ()
 }
