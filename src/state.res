@@ -1,7 +1,7 @@
 type phase =
   | Title(unit)
-  | Question({questions: array<int>, objectCandidates: array<int>})
-  | GameOver({object: int})
+  | Question({core: Core.t, questions: array<int>, objectCandidates: array<int>})
+  | GameOver({core: Core.t, object: int})
   | NotAvailable(unit)
 
 let phase = Recoil.atom({

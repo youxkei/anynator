@@ -1,14 +1,14 @@
 open Belt
 
 @react.component
-let make = (~object, ()) => {
+let make = (~data: Data.t, ~core: Core.t, ~object, ()) => {
   let setState = Recoil.useSetRecoilState(State.phase)
 
   let onClick = _ => setState(_ => State.Title())
 
   <>
-    <h1> {Data.title->React.string} </h1>
-    <h2> {Data.gameOver->React.string} {Core.objectTexts->Array.getExn(object)->React.string} </h2>
-    <button onClick> {Data.returnToTitle->React.string} </button>
+    <h1> {data.title->React.string} </h1>
+    <h2> {data.gameOver->React.string} {core.objectTexts->Array.getExn(object)->React.string} </h2>
+    <button onClick> {data.returnToTitle->React.string} </button>
   </>
 }
