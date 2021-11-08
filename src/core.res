@@ -17,7 +17,6 @@ type t = {
 
 let new = (data: Data.t) => {
   let table = (data.table->Papa.parse).data
-  Js.log(table)
 
   let objectTexts = table->Array.getExn(0)->Array.sliceToEnd(1)
   let objectsNum = objectTexts->Array.length
